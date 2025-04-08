@@ -1,0 +1,40 @@
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Tech Innovators Inc.",
+      "industry": "Technology",
+      "location": "San Francisco, CA",
+      "employees": 120
+    },
+    {
+      "id": 2,
+      "name": "Green Future Solutions",
+      "industry": "Renewable Energy",
+      "location": "Austin, TX",
+      "employees": 85
+    },
+    {
+      "id": 3,
+      "name": "HealthFirst Corp.",
+      "industry": "Healthcare",
+      "location": "New York, NY",
+      "employees": 200
+    },
+    {
+      "id": 4,
+      "name": "EduTech Global",
+      "industry": "Education Technology",
+      "location": "Seattle, WA",
+      "employees": 50
+    },
+    {
+      "id": 5,
+      "name": "FinServe Partners",
+      "industry": "Financial Services",
+      "location": "Chicago, IL",
+      "employees": 150
+    }
+  ]
+}

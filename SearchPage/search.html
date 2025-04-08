@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">http://127.0.0.1:3000/
+    <title>SearchPage</title>
+    <link rel="stylesheet" href="/SearchPage/src/output.css">
+    <style>
+
+    </style>
+
+</head>
+
+<body class="w-full min-h-screen bg-[#000000] ml:px-96 md:px-32 ">
+
+    <nav class="border border-b-gray-600 border-black text-white bg-black px-6 py-2  flex items-center justify-between">
+
+        <div class="flex items-center">
+            <a href="/" class="flex items-center">
+                <!-- Logo -->
+                <span class="text-white text-2xl font-bold ml-2">ElevateX</span>
+            </a>
+        </div>
+
+    </nav>
+
+    <div class="text-white md:mx-20  md:my-10 mx-8 my-8">
+
+        <p class="text-2xl md:text-4xl">StartUp Directory</p>
+        <br>
+        <p class="text-xs md:text-xl">Since 2025, we have invested in over 20 companies that have a combined evaluation
+            of over $100k.</p>
+        <br>
+        <p class="text-xs md:text-xl">To find jobs at these startups, visit <a class="text-orange-400 underline"
+                href="#">Work at a StartUp.</a></p>
+        <br>
+
+    </div>
+
+    <div class="flex m-2 ">
+        <form action="/search" method="GET"
+            class="flex items gap-3 justify-center items-center md:justify-end md:mx-20 w-full">
+            <input type="search" name="query" class=" bg-gray-800 text-gray-300 px-2 py-1 flex-1/12 min-w-[100px] rounded-lg md:max-w-[300px] max-w-[100px] "
+                placeholder="Search..." id="Search">
+            <button type="submit" class="bg-gray-800 text-gray-300 px-2 py-1 rounded-lg cursor-pointer outline-none ">Search</button>
+                <select id="myDropdown" name="myDropdown" class="text-gray-300 bg-gray-800 border border-gray-600 px-2 py-1 rounded-lg flex-shrink-0 max-w-[100px]">
+                    <option class="bg-gray-900" value="option1" selected>Default</option>
+                    <option class="bg-gray-900" value="option2">Launch Date</option>
+                </select>
+        </form>
+    </div>
+   
+    <div id="company-cards" class="text-white flex flex-wrap gap-4 justify-self-auto md:mx-20 mx-8 my-8">
+      <div class="card">
+        <div class="header">My name</div>
+        <div class="body">email@gmail.com</div>
+      </div> 
+    </div>
+
+    
+
+
+    <script src="search.js"></script>
+
+</body>
+
+</html>
