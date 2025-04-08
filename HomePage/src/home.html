@@ -6,6 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElevateX</title>
     <link rel="stylesheet" href="./output.css">
+    <style>
+        .slider {
+            width: 100%;
+            height: var(--height);
+            overflow: hidden;
+            margin-bottom: 50px;
+            mask-image: linear-gradient(to right,
+                    transparent,
+                    #000 10% 90%,
+                    transparent);
+        }
+
+        .slider .list {
+            display: flex;
+            width: 100%;
+            min-width: calc(var(--width) * var(--quantity));
+            position: relative;
+        }
+
+        .slider .list .item {
+            width: var(--width);
+            height: var(--height);
+            position: absolute;
+            left: 100%;
+            animation: autoRun 10s linear infinite;
+            transition: filter 0.5s;
+            animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s) !important;
+        }
+
+        .slider .list .item img {
+            width: 100%;
+        }
+
+        @keyframes autoRun {
+            from {
+                left: 100%;
+            }
+
+            to {
+                left: calc(var(--width) * -1);
+            }
+        }
+
+        .slider:hover .item {
+            animation-play-state: paused !important;
+            filter: grayscale(1);
+        }
+
+        .slider .item:hover {
+            filter: grayscale(0);
+        }
+
+        .slider[reverse="true"] .item {
+            animation: reversePlay 10s linear infinite;
+        }
+
+        @keyframes reversePlay {
+            from {
+                left: calc(var(--width) * -1);
+            }
+
+            to {
+                left: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-black">
@@ -337,7 +403,7 @@
                             <div class="p-6 flex">
                                 <!-- Left large area (40%) -->
                                 <div class="w-2/5 pr-4 border border-gray-700 rounded-lg mr-5">
-
+                                    <!-- For image area is left mfs -->
                                 </div>
 
                                 <!-- Right side with three lists (60%) -->
@@ -406,6 +472,7 @@
         </div>
     </nav>
 
+
     <!-- Hero Section -->
     <section class="bg-black relative py-16 overflow-hidden">
 
@@ -454,7 +521,7 @@
 
 
         <!-- connection cards -->
-        <div class="container mx-auto px-4 max-w-6xl relative z-10 mt-16" style="width: 940px; height: 600px;">
+        <div class="container mx-auto mt-40 px-4 max-w-6xl relative z-10" style="width: 940px; height: 500px;">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 h-full">
 
                 <!-- Card 1 -->
@@ -650,396 +717,157 @@
 
 
     </section>
-    <!-- Carosal -->
-    <!-- Top Companies Hiring Carousel Component -->
-    <div class="w-full py-12 bg-black">
-        <div class="container mx-auto px-4 ">
-            <!-- Heading -->
-            <h2 class="text-3xl font-bold text-center text-white mb-10">Top companies hiring now</h2>
 
-            <!-- Carousel Container -->
-            <div class="relative">
-
-                <!-- Carousel Items -->
-                <div class="flex space-x-6 overflow-x-hidden px-4 " id="carouselTrack">
-                    <!-- EdTech Card -->
-                    <div
-                        class="flex-none w-64 bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="text-xl font-semibold text-white">EdTech</h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="text-blue-400">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                            <p class="text-gray-400 mb-5">146 are actively hiring</p>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-emerald-500 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-white font-bold">L</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-gray-100 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-gray-800 text-xs font-bold">media</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-red-800 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-white font-bold">A</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Healthcare Card -->
-                    <div
-                        class="flex-none w-64 bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="text-xl font-semibold text-white">Healthcare</h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="text-blue-400">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                            <p class="text-gray-400 mb-5">601 are actively hiring</p>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-gray-100 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-gray-800 text-xs font-bold">strand</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-blue-600 w-full h-10 rounded flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-blue-100 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-blue-800 font-bold">QPS</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Unicorns Card -->
-                    <div
-                        class="flex-none w-64 bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="text-xl font-semibold text-white">Unicorns</h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="text-blue-400">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                            <p class="text-gray-400 mb-5">97 are actively hiring</p>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-blue-500 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-white font-bold">P</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-cyan-500 w-full h-10 rounded flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-teal-500 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">uni</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- B2C Card -->
-                    <div
-                        class="flex-none w-64 bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="text-xl font-semibold text-white">B2C</h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="text-blue-400">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                            <p class="text-gray-400 mb-5">2.3K+ are actively hiring</p>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-blue-100 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-blue-700 text-xs font-bold">cj</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-gray-800 w-full h-10 rounded flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-red-600 w-full h-10 rounded flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Internet Card -->
-                    <div
-                        class="flex-none w-64 bg-gradient-to-b from-gray-800 to-gray-900 rounded-xl shadow-xl border border-gray-700">
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="text-xl font-semibold text-white">Internet</h3>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="text-blue-400">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </div>
-                            <p class="text-gray-400 mb-5">236 are actively hiring</p>
-                            <div class="grid grid-cols-3 gap-3">
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-lime-500 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-black font-bold">bb</span>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-teal-600 w-full h-10 rounded flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div
-                                    class="bg-gray-800 p-2 rounded-lg shadow-md hover:shadow-blue-500/20 transition duration-300">
-                                    <div class="bg-gray-700 w-full h-10 rounded flex items-center justify-center">
-                                        <span class="text-white text-xs font-bold">net</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <!-- Carosal big -->
+    <div class="slider" reverse="true" style="
+                        --width: 200px;
+                        --height: 200px;
+                        --quantity: 9;
+                    ">
+        <div class="list">
+            <div class="item" style="--position: 1"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="./user-01.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="./user-01.jpg" alt=""></div>
         </div>
     </div>
 
     <!-- Carosal -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Join Us CTA NewsLetter reference type -->
-    <div class=" w-full mb-10 ">
-        <!-- Inner content div with specified dimensions -->
-        <div class="mx-auto flex items-center justify-between h-[346px] w-[941px] bg-[#0b0b0d] pr-10 pl-15 rounded-2xl">
-            <!-- Left content section -->
-            <div class="max-w-lg">
-                <p class="text-pink-500 font-medium mb-2">Get started today</p>
-                <h1 class="text-white text-4xl font-bold mb-8">Transform your business through meaningful connections.
-                </h1>
-                <button
-                    class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-6 rounded-md flex items-center transition duration-300">
-                    Join Now
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20"
-                        fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Right image section -->
-            <div class="ml-8">
-                <div class="rounded-lg overflow-hidden shadow-lg h-64 w-64">
-                    <img src="./close-up-portrait-young-man-isolated-black-studio.jpg"
-                        alt="Smiling business professional" class="object-cover h-full w-full" />
-                </div>
-            </div>
+    <div class="slider" style="
+                    --width: 100px;
+                    --height: 50px;
+                    --quantity: 10;
+                ">
+        <div class="list">
+            <div class="item" style="--position: 1"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img
+                    src="../src/close-up-portrait-young-man-isolated-black-studio.jpg" alt=""></div>
         </div>
     </div>
 
 
-    <!-- Footer Container -->
-    <footer class="bg-black py-12 px-4">
-        <div class="max-w-6xl mx-auto">
-            <!-- Top section with logo and navigation columns -->
-            <div class="flex flex-col md:flex-row justify-center mb-12 space-x-50">
-                <!-- Logo -->
-                <div class="mb-8 md:mb-0">
-                    <div class="flex items-center">
-                        <span class="text-white text-xl font-bold">ElevateX</span>
+
+
+
+
+
+
+    <!-- Big card section -->
+    <div class="flex justify-center bg-black ">
+        
+    </div>
+
+
+   
+    <!-- Footer Section -->
+    <footer class="bg-black bg-opacity-50 py-10 px-6">
+        <div class="container mx-auto">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="flex flex-col space-y-4">
+                    <h3 class="text-2xl text-white font-bold">ElevateX</h3>
+                    <p class="text-white">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium.
+                    </p>
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-10 mt-2">
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2c-2.716 0-3.056.012-4.123.06-1.064.049-1.791.218-2.427.465a4.901 4.901 0 0 0-1.772 1.153A4.902 4.902 0 0 0 2.525 5.45c-.247.636-.416 1.363-.465 2.427C2.012 8.944 2 9.284 2 12s.012 3.056.06 4.123c.049 1.064.218 1.791.465 2.427a4.902 4.902 0 0 0 1.153 1.772 4.902 4.902 0 0 0 1.772 1.153c.636.247 1.363.416 2.427.465 1.067.048 1.407.06 4.123.06s3.056-.012 4.123-.06c1.064-.049 1.791-.218 2.427-.465a4.902 4.902 0 0 0 1.772-1.153 4.902 4.902 0 0 0 1.153-1.772c.247-.636.416-1.363.465-2.427.048-1.067.06-1.407.06-4.123s-.012-3.056-.06-4.123c-.049-1.064-.218-1.791-.465-2.427a4.902 4.902 0 0 0-1.153-1.772 4.901 4.901 0 0 0-1.772-1.153c-.636-.247-1.363-.416-2.427-.465C15.056 2.012 14.716 2 12 2zm0 1.802c2.67 0 2.986.01 4.04.058.976.045 1.505.207 1.858.344.466.182.8.399 1.15.748.35.35.566.684.748 1.15.137.353.3.882.344 1.857.048 1.055.058 1.37.058 4.041 0 2.67-.01 2.986-.058 4.04-.044.976-.207 1.505-.344 1.858a3.1 3.1 0 0 1-.748 1.15c-.35.35-.684.566-1.15.748-.353.137-.882.3-1.857.344-1.054.048-1.37.058-4.041.058-2.67 0-2.987-.01-4.04-.058-.976-.044-1.505-.207-1.858-.344a3.098 3.098 0 0 1-1.15-.748 3.098 3.098 0 0 1-.748-1.15c-.137-.353-.3-.882-.344-1.857-.048-1.055-.058-1.37-.058-4.041 0-2.67.01-2.986.058-4.04.045-.976.207-1.505.344-1.858.182-.466.399-.8.748-1.15.35-.35.684-.566 1.15-.748.353-.137.882-.3 1.857-.344 1.055-.048 1.37-.058 4.041-.058zm0 11.531a3.333 3.333 0 1 1 0-6.666 3.333 3.333 0 0 1 0 6.666zm0-8.468a5.135 5.135 0 1 0 0 10.27 5.135 5.135 0 0 0 0-10.27zm6.538-.203a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Navigation Column -->
-                <div class="mb-8 md:mb-0">
-                    <h3 class="text-gray-400 uppercase text-sm font-medium mb-4">Navigation</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-white hover:text-gray-300">Events</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300">Companies</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300">Investors</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300">Contributers</a></li>
+                <!-- Company Links -->
+                <div class="pl-20">
+                    <h3 class="text-white font-bold text-lg mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white hover:text-gray-200">About</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">Meet the Team</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">History</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">Careers</a></li>
                     </ul>
                 </div>
 
-                <!-- Talk To Us Column -->
-                <div class="mb-8 md:mb-0">
-                    <h3 class="text-gray-400 uppercase text-sm font-medium mb-4">Talk to us</h3>
-                    <div class="space-y-3">
-                        <p class="text-white">Contact</p>
-                        <a href="mailto:info@connectd.co"
-                            class="text-white hover:text-gray-300 border-b border-gray-600 pb-1">info@ElevateX.co</a>
-                    </div>
+                <!-- Services Links -->
+                <div class="pl-20">
+                    <h3 class="text-white font-bold text-lg mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white hover:text-gray-200">1on1 Coaching</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">Company Review</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">Accounts Review</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">HR Consulting</a></li>
+                        <li><a href="#" class="text-white hover:text-gray-200">SEO Optimisation</a></li>
+                    </ul>
                 </div>
 
-                <!-- Follow Us Column -->
-                <div>
-                    <h3 class="text-gray-400 uppercase text-sm font-medium mb-4">Follow us</h3>
-                    <div class="flex space-x-4">
-                        <!-- LinkedIn Icon -->
-                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-                            <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
-                        </a>
-                        <!-- Twitter Icon -->
-                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-                            <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.37 8.57 8.57 0 01-2.72 1.04A4.26 4.26 0 0016 4c-2.36 0-4.28 1.92-4.28 4.28 0 .34.04.68.11 1A12.14 12.14 0 013 5.16a4.28 4.28 0 001.32 5.7 4.2 4.2 0 01-1.94-.54v.05c0 2.07 1.47 3.8 3.42 4.2-.36.1-.74.15-1.12.15-.28 0-.55-.03-.82-.08a4.28 4.28 0 004 2.98A8.59 8.59 0 012 18.57a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.38-.01-.56A8.63 8.63 0 0022.46 6z" />
-                            </svg>
-                        </a>
-
-
-                        <!-- Instagram Icon -->
-                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-                            <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                            </svg>
-                        </a>
+                <!-- Combined Helpful Links and Legal -->
+                <div class="pl-20">
+                    <!-- Helpful Links -->
+                    <div>
+                        <h3 class="text-white font-bold text-lg mb-4">Helpful Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-white hover:text-gray-200">Contact</a></li>
+                            <li><a href="#" class="text-white hover:text-gray-200">FAQs</a></li>
+                            <li><a href="#" class="text-white hover:text-gray-200">Live Chat</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-
-            <!-- Divider -->
-            <hr class="border-gray-800 my-8">
-
-            <!-- Terms links -->
-            <div class="flex flex-wrap gap-y-2 text-gray-500 text-sm mb-8 justify-center">
-                <a href="#" class="hover:text-gray-400 mr-2">T&Cs Investors</a>
-                <span class="mx-2">/</span>
-                <a href="#" class="hover:text-gray-400 mr-2">T&Cs Advisors</a>
-                <span class="mx-2">/</span>
-                <a href="#" class="hover:text-gray-400 mr-2">T&Cs Founders</a>
-                <span class="mx-2">/</span>
-                <a href="#" class="hover:text-gray-400 mr-2">Privacy Policy</a>
-                <span class="mx-2">/</span>
-                <a href="#" class="hover:text-gray-400 mr-2">Cookie Policy</a>
-                <span class="mx-2">/</span>
-                <a href="#" class="hover:text-gray-400 mr-2">Website Use Policy</a>
-                <span class="mx-2">/</span>
-                <a href="#" class="hover:text-gray-400">T&Cs Website</a>
-            </div>
-
-            <!-- Company info -->
-            <div class="text-center text-gray-500 text-sm mb-6">
-                <p>ElevateX Ltd t.a. Connectd registered in England and Wales. Company no. 12280705. Registered office
-                    address: Suite 12, 45 King Street,</p>
-                <p>Manchester, United Kingdom, M2 4WQ.</p>
             </div>
 
             <!-- Copyright -->
-            <div class="text-center text-gray-500 text-sm">
-                <p>© Copyright ElevateX® 2025</p>
+            <div class="mt-10 pt-6 border-t border-gray-300 border-opacity-20 text-center">
+                <p class="text-white">&copy; 2025 ElevateX</p>
             </div>
         </div>
     </footer>
-
 
     <script src="./index.js"></script>
 </body>
